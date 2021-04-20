@@ -1,0 +1,44 @@
+# 端口
+server:
+  port: 8082
+# 数据源 主库
+spring:
+  shardingsphere:
+    datasource:
+      names: master,slave0
+      master:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.164.128:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+        username: root
+        password: 123456
+      # 数据源 从库
+      slave0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.164.128:3307/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+        username: root
+        password: 123456
+    sharding:
+      tables:
+        db_user:
+          actual-data-nodes: db_master_0.db_user_$->{0..4}
+          table-strategy:
+            inline:
+              sharding-column: id
+              algorithm-expression: db_user_$->{id % 5}
+      master-slave-rules:
+        db_master_0:
+          name: ms
+          master-data-source-name: master
+          slave-data-source-names: slave0
+    # 读写分离
+#    masterslave:
+#      load-balance-algorithm-type: round_robin
+#      name: ms
+#      master-data-source-name: master
+#      slave-data-source-names: slave0
+    #打印sql
+    props:
+      sql:
+        show: true

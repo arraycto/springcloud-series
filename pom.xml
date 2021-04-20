@@ -12,12 +12,16 @@
     <modules>
         <module>cloud-transaction</module>
         <module>cloud-common</module>
+        <module>cloud-sharding</module>
+        <module>cloud-drools</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
         <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+
+        <drools.version>7.7.0.Final</drools.version>
     </properties>
 
     <dependencyManagement>
@@ -62,6 +66,18 @@
 
     <dependencies>
 
+        <!-- 神器lombok插件 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <!-- <optional>true</optional> -->
+        </dependency>
+        <!-- 工具类大全 - 在线文档：https://hutool.cn/docs/#/ -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.0.7</version>
+        </dependency>
     </dependencies>
 
     <!-- 构建配置 -->
