@@ -1,50 +1,56 @@
 # 端口
 server:
-    port: 8082
+  port: 8082
 
 spring:
-    # 服务名称
-    application.name: seata-order
-    # 当前环境
-    profiles.active: dev
-    # 数据源配置
-    datasource:
-        type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://192.168.164.128:3306/order?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
-        username: root
-        password: 123456
-        # 是否打开sql监控台  (生产环境请务必关闭此选项)
-        druid:
-            stat-view-servlet:
-                enabled: true
-            web-stat-filter:
-                enabled: true
-            filter:
-                config:
-                    enabled: true
+  # 服务名称
+  application.name: seata-order
+  # 当前环境
+  profiles.active: dev
+  # 数据源配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.164.128:3306/seata-order?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123456
+    # 是否打开sql监控台  (生产环境请务必关闭此选项)
+    druid:
+      stat-view-servlet:
+        enabled: true
+      web-stat-filter:
+        enabled: true
+      filter:
+        config:
+          enabled: true
+  # JPA 相关配置
+  jpa:
+    database: mysql
+    show-sql: true
+#    hibernate:
+#      ddl-auto: update
 seata:
-    enabled: true
-    enable-auto-data-source-proxy: true
-    tx-service-group: my_test_tx_group
-    registry:
-        type: nacos
-        nacos:
-            application: seata-server
-            server-addr: 127.0.0.1:8001
-            username: nacos
-            password: nacos
-    config:
-        type: nacos
-        nacos:
-            server-addr: 127.0.0.1:8001
-            group: SEATA_GROUP
-            username: nacos
-            password: nacos
-            namespace: 465a28fb-e8f1-48ba-ae78-9dd9d77d166e
-    service:
-        vgroup-mapping:
-            my_test_tx_group: default
-        disable-global-transaction: false
-    client:
-        rm:
-            report-success-enable: false
+  enabled: true
+  enable-auto-data-source-proxy: true
+  tx-service-group: my_test_tx_group
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 127.0.0.1:8001
+      username: nacos
+      password: nacos
+  config:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8001
+      group: SEATA_GROUP
+      username: nacos
+      password: nacos
+      namespace: 465a28fb-e8f1-48ba-ae78-9dd9d77d166e
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default
+    disable-global-transaction: false
+  client:
+    rm:
+      report-success-enable: false

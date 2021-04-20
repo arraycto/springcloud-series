@@ -1,7 +1,10 @@
 package com.cloud.order.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @description:
@@ -12,9 +15,13 @@ import lombok.Data;
  * @version:1.0
  */
 @Data
-@TableName("seata_order")
+@Entity
+@Table(name = "seata_order")
 public class Order {
+    @Id
     private Integer id;
-    private Integer product_id;
+    private Integer productId;
     private String name;
+
+
 }

@@ -1,9 +1,10 @@
 package com.cloud.product.controller;
 
+import com.cloud.product.dao.ProductRepository;
 import com.cloud.product.entity.Product;
-import com.cloud.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -17,20 +18,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProductController {
     @Autowired
-    ProductService productService;
+    ProductRepository productRepository;
 
     @GetMapping("getProductById")
     public Product getProductById(Integer id) {
-        return productService.getById(id);
+        System.out.println("查询：" + id);
+        Product one = productRepository.getOne(id);
+        System.out.println("商品：" + one);
+        return productRepository.getOne(id);
 
     }
 
-    @GetMapping("saveProduct")
+    @PostMapping("saveProduct")
     public void saveProduct() {
         Product p = new Product();
         p.setId(2);
         p.setName("苹果14");
-        productService.save(p);
-
+        productRepository.save(p);
+        System.out.println("添加成功");
     }
 }

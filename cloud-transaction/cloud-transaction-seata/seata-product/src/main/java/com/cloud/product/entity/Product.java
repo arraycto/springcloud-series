@@ -1,7 +1,12 @@
 package com.cloud.product.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * @description:
@@ -12,8 +17,11 @@ import lombok.Data;
  * @version:1.0
  */
 @Data
-@TableName("seata_product")
-public class Product {
+@Entity
+@Table(name = "seata_product")
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer"})
+public class Product implements Serializable {
+    @Id
     private Integer id;
     private String name;
 }

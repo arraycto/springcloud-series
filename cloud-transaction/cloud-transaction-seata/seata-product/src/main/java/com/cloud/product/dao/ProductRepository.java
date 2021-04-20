@@ -1,7 +1,7 @@
-package com.cloud.product.mapper;
+package com.cloud.product.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.cloud.product.entity.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * @description:
@@ -11,5 +11,5 @@ import com.cloud.product.entity.Product;
  * @createTime:2021/4/19 9:40
  * @version:1.0
  */
-public interface ProductMapper extends BaseMapper<Product> {
+public interface ProductRepository extends JpaRepository<Product,Integer> {
 }
