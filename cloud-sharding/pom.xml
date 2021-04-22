@@ -22,10 +22,10 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
+        <!-- springboot集成 jpa -->
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.3.2</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
         <!--sharding jdbc springboot-->
