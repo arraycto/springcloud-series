@@ -6,7 +6,8 @@
 
     <groupId>com.cloud</groupId>
     <artifactId>dd-cat-cloud</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
+
     <packaging>pom</packaging>
 
     <modules>
@@ -17,7 +18,9 @@
     </modules>
 
     <properties>
-        <java.version>1.8</java.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+
         <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
 
@@ -60,19 +63,17 @@
                 <artifactId>nacos-client</artifactId>
                 <version>2.0.0</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
-
-        <!-- 神器lombok插件 -->
+        <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <!-- <optional>true</optional> -->
+            <optional>true</optional>
         </dependency>
-        <!-- 工具类大全 - 在线文档：https://hutool.cn/docs/#/ -->
+        <!-- 工具类 -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
@@ -82,7 +83,7 @@
 
     <!-- 构建配置 -->
     <build>
-        <!-- 配置资源目录, 主要解决idea无法将代码中的mapper.xml编译的问题  -->
+        <!-- 编译时打包XML文件 -->
         <resources>
             <resource>
                 <directory>src/main/java</directory>
@@ -92,11 +93,7 @@
             </resource>
             <resource>
                 <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*.*</include>
-                </includes>
             </resource>
         </resources>
     </build>
-
 </project>
