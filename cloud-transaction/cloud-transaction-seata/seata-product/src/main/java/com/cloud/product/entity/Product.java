@@ -10,8 +10,6 @@ import java.io.Serializable;
 
 /**
  * @description:
- * @projectName:dd-cat-cloud
- * @see:com.cloud.product.entity
  * @author: dd-cat
  * @createTime:2021/4/19 9:37
  * @version:1.0
@@ -19,7 +17,7 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = "seata_product")
-@JsonIgnoreProperties(value = { "hibernateLazyInitializer"})
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer"})
 public class Product implements Serializable {
     @Id
     private Integer id;

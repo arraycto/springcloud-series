@@ -6,6 +6,7 @@ import com.cloud.order.feign.RemoteProductServiceFeign;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -19,7 +20,7 @@ public class OrderController {
 
     @PostMapping("/save")
     @GlobalTransactional
-    public void saveOrder(Order order) throws Exception {
+    public void saveOrder(@RequestBody Order order) throws Exception {
         orderRepository.save(order);
 
         Order byId = orderRepository.getOne(order.getId());
