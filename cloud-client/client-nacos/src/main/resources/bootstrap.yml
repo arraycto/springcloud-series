@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: nacos-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.164.128:8848
+        #server-addr: 127.0.0.1:8001
+        username: nacos
+        password: nacos
+      config:
+        server-addr: 192.168.164.128:8848
+        #server-addr: 127.0.0.1:8001
+        username: nacos
+        password: nacos
+      ### nacos注册中心 - 用户
+#        username: nacos
+#        ### nacos注册中心 - 密码
+#        password: nacos
