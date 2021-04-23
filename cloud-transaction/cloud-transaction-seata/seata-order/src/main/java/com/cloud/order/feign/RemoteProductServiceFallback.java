@@ -16,6 +16,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class RemoteProductServiceFallback implements FallbackFactory<RemoteProductServiceFeign> {
     private static final Logger log = LoggerFactory.getLogger(RemoteProductServiceFallback.class);
+
+    @Override
     public RemoteProductServiceFeign create(Throwable throwable) {
         log.error("--------------------系统异常，触发降级: {}", throwable.getMessage());
         return null;

@@ -36,13 +36,13 @@ seata:
     type: nacos
     nacos:
       application: seata-server
-      server-addr: 127.0.0.1:8001
+      server-addr: 192.168.164.128:8848
       username: nacos
       password: nacos
   config:
     type: nacos
     nacos:
-      server-addr: 127.0.0.1:8001
+      server-addr: 192.168.164.128:8848
       group: SEATA_GROUP
       username: nacos
       password: nacos

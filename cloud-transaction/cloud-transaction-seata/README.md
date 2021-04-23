@@ -3,6 +3,7 @@ Seata 分布式事务
 下载地址 https://github.com/seata/seata/releases
 
 file.conf
+
 ```
 ## transaction log store, only used in seata-server
 store {
@@ -31,6 +32,7 @@ store {
 ```
 
 registry.conf
+
 ```
 registry {
   # file 、nacos 、eureka、redis、zk、consul、etcd3、sofa
@@ -65,6 +67,19 @@ config {
 ```
 
 导入配置到nacos中
+
 ```
 sh nacos-config.sh -h localhost -p 8848 -g SEATA_GROUP -t 465a28fb-e8f1-48ba-ae78-9dd9d77d166e -u nacos -w nacos
+```
+
+docker安装
+
+```
+docker run --name seata-server \
+        -d -p 8091:8091 \
+        -e SEATA_IP=192.168.164.128 \
+        -e SEATA_PORT=8091 \
+        -v /data/seata/conf/file.conf:/seata-server/resources/file.conf  \
+        -v /data/seata/conf/registry.conf:/seata-server/resources/registry.conf  \
+        seataio/seata-server
 ```
