@@ -6,7 +6,7 @@
 
     <groupId>com.cloud</groupId>
     <artifactId>dd-cat-cloud</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
@@ -16,13 +16,14 @@
         <module>cloud-sharding</module>
         <module>cloud-drools</module>
         <module>cloud-workflow</module>
+        <module>cloud-client</module>
     </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
 
-        <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
+        <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
 
         <drools.version>7.7.0.Final</drools.version>
