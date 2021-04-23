@@ -15,6 +15,7 @@
         <module>cloud-common</module>
         <module>cloud-sharding</module>
         <module>cloud-drools</module>
+        <module>cloud-workflow</module>
     </modules>
 
     <properties>
