@@ -6,7 +6,7 @@ SpringCloud 系列
 
 #### 软件架构
 
-```lua
+```
 dd-cat-cloud
 ├── cloud-common -- 公共模块
 ├── cloud-drools -- 规则引擎
