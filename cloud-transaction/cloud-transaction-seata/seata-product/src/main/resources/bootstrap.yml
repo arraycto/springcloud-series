@@ -26,8 +26,9 @@ spring:
   jpa:
     database: mysql
     show-sql: true
-#    hibernate:
-#      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
 seata:
   enabled: true
   enable-auto-data-source-proxy: true

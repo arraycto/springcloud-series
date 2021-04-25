@@ -3,10 +3,12 @@ server:
   port: 8082
 # 数据源 主库
 spring:
-  # JPA 相关配置
   jpa:
     database: mysql
     show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
   shardingsphere:
     datasource:
       names: master,slave0
@@ -31,9 +33,9 @@ spring:
           actual-data-nodes: db_master_0.db_user_$->{0..4}
           #分表策略
           table-strategy:
-#            inline:
-#              sharding-column: id
-#              algorithm-expression: db_user_$->{id % 5}
+            #            inline:
+            #              sharding-column: id
+            #              algorithm-expression: db_user_$->{id % 5}
             # 分表策略，自定义分表策略
             standard:
               sharding-column: id
@@ -44,11 +46,11 @@ spring:
           master-data-source-name: master
           slave-data-source-names: slave0
     # 读写分离
-#    masterslave:
-#      load-balance-algorithm-type: round_robin
-#      name: ms
-#      master-data-source-name: master
-#      slave-data-source-names: slave0
+    #    masterslave:
+    #      load-balance-algorithm-type: round_robin
+    #      name: ms
+    #      master-data-source-name: master
+    #      slave-data-source-names: slave0
     #打印sql
     props:
       sql:
