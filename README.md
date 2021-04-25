@@ -8,6 +8,8 @@ SpringCloud 系列
 
 ```
 dd-cat-cloud
+├── cloud-client -- 客户端模块
+├    └── client-nacos -- nacos注册中心
 ├── cloud-common -- 公共模块
 ├── cloud-drools -- 规则引擎
 ├── cloud-sharding -- 分库分表 读写分离
