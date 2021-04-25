@@ -13,6 +13,7 @@ import java.util.Collection;
  */
 public class UserShardingTableAlgorithm implements PreciseShardingAlgorithm<Integer> {
 
+    @Override
     public String doSharding(Collection<String> collection, PreciseShardingValue<Integer> preciseShardingValue) {
         StringBuilder sb = new StringBuilder();
         //分成5张表，根据id取余5
